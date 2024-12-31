@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> VredenApis </title>
+    <meta name="description" content="Rest full api untuk pengguna vreden bot dan developer lain, result json yang mudah untuk di fetch">
+    <meta name="keywords" content="vredenapi, vreden api, vreden bot, bot WhatsApp, qioo official, WhatsApp, vreden apis, vreden ai, bot vreden, bot button, buttons WhatsApp, button WhatsApp, bot support button, rest api, rest full api, downloader api, ytdl api, yanzgpt, yanz bot, kyuurzy anj, metaai">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        color: #fff;
+        transition: filter 0.3s ease;
+      }
+
+      .blur {
+        filter: blur(5px);
+      }
+
+      .header {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #1f1f1f;
+        z-index: 1000;
+      }
+
+      .header img {
+        height: 30px;
+      }
+
+      .header .icons {
+        position: relative;
+      }
+
+      .header .icons i {
+        margin: 0 10px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 250px;
+        background-color: #1f1f1f;
+        border-left: 1px solid #333;
+        z-index: 1000;
+        transform: translateX(100%);
+        opacity: 0;
+        visibility: hidden;
+        /* Gunakan visibility */
+        transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+      }
+
+      .menu.active {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        /* Tampilkan elemen */
+      }
+
+      .menu-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+  position: relative;
+}
+
+.menu-center {
+  display: flex;
+  align-items: center;
+}
+
+.menu-header img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.menu-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #00ffff;
+}
+
+.menu-header i {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+      .menu-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.5s ease;
+        font-weight: bold;
+      }
+
+      .menu-item:hover {
+        background-color: #333;
+      }
+
+      .menu-item i {
+        margin-right: 10px;
+      }
+
+      .submenu {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+        padding-left: 20px;
+        margin-bottom: 10px;
+      }
+
+      .submenu.active {
+        max-height: 1000px;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .submenu-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.5s ease;
+      }
+
+      .submenu-item:hover {
+        background-color: #444;
+      }
+
+      .submenu-item i {
+        margin-right: 10px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .card {
+        background-color: #1f1f1f;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transform: scale(0.9);
+        /* Mulai dari ukuran kecil */
+        opacity: 0.5;
+        /* Mulai dengan transparansi */
+        transition: transform 0.5s ease, opacity 0.5s ease;
+      }
+
+      .card.visible {
+        transform: scale(1);
+        /* Kembali ke ukuran normal */
+        opacity: 1;
+        /* Kembali ke opasitas penuh */
+      }
+
+      .card h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #00ffff;
+        /* Light blue color */
+      }
+
+      .card p {
+        margin: 5px 0 0;
+        font-size: 14px;
+        color: #888;
+      }
+
+      .card .value {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .card .icon {
+        background-color: #2a2a2a;
+        padding: 10px;
+        border-radius: 50%;
+      }
+
+      .card .icon i {
+        font-size: 20px;
+      }
+
+      .modal {
+        visibility: hidden;
+        /* Awalnya tidak terlihat */
+        opacity: 0;
+        /* Transparan */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        /* Mulai dari ukuran kecil */
+        background-color: #1f1f1f;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+        z-index: 1001;
+        width: 80%;
+        max-width: 500px;
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+      }
+
+      .modal.active {
+        visibility: visible;
+        /* Tampilkan */
+        opacity: 1;
+        /* Tidak transparan */
+        transform: translate(-50%, -50%) scale(1);
+        /* Kembali ke ukuran normal */
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+      }
+
+      .modal-header h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #00ffff;
+      }
+
+      .modal-header i {
+        cursor: pointer;
+      }
+
+      .modal-content {
+        font-size: 14px;
+        color: #888;
+      }
+
+      .profile-modal-content {
+        display: flex;
+        align-items: center;
+      }
+
+      .profile-modal-content img {
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+
+      .next-page-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .next-page-card h3 {
+        color: #00e5ff;
+        margin: 0;
+        font-size: 16px;
+      }
+
+      .next-page-card button {
+        background-color: #00e5ff;
+        color: #121212;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+
+      .next-page-card button:hover {
+        background-color: #00b3cc;
+      }
+
+      .next-page-card button i {
+        margin-left: 10px;
+      }
+
+      .code-card {
+        background-color: #1f1f1f;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .code-card h3 {
+        color: #00e5ff;
+        margin: 0;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .code-card pre {
+        background-color: #2a2a2a;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        color: #00e5ff;
+        width: 100%;
+        max-width: 90%;
+        position: relative;
+        text-align: left;
+      }
+
+      .code-card button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #00e5ff;
+        color: #121212;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      .code-card button:hover {
+        background-color: #00b3cc;
+      }
+
+      .code-card-container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img alt="Logo" height="30" src="https://pomf2.lain.la/f/xg77bfei.png" width="30" />
+      <div class="icons">
+        <i class="fa-brands fa-github" id="email-icon"></i>
+        <i class="fas fa-user-circle" id="profile-icon"></i>
+        <i class="fas fa-bars" id="menu-toggle"></i>
+      </div>
+    </div>
+    <div class="menu" id="menu">
+      <div class="menu-header">
+  <div class="menu-center">
+    <img alt="Vreden Api" height="30" src="https://pomf2.lain.la/f/xg77bfei.png" width="30" />
+    <h3>Vreden Api</h3>
+  </div>
+  <i class="fa-regular fa-circle-xmark" id="menu-close"></i>
+</div>
+      <div class="menu-item" onclick="toggleSubmenu('downloader-submenu', 'downloader-icon')">
+        <div>
+          <i class="fa-solid fa-cloud-arrow-down"></i> Downloader
+        </div>
+        <i class="fas fa-caret-right" id="downloader-icon"></i>
+      </div>
+      <div class="submenu" id="downloader-submenu">
+        <div class="submenu-item" onclick="location.href='/api/capcutdl?url=https://www.capcut.net/sharevideo?template_id=7446548553788411141';">
+          <i class="fa-solid fa-circle-exclamation"></i> CapCut
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/drive?url=https://drive.google.com/file/d/1DrZxDdfPSGcabL3qkqI-4ON9xY3oDPdO/view?usp=drivesdk';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Google Drive
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/fbdl?url=https://www.facebook.com/share/r/1B5sDSg6EU/';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Facebook
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/igdownload?url=https://www.instagram.com/reel/C6AtQa1LEX0/?igsh=YzljYTk1ODg3Zg==';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Instagram
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/mediafiredl?url=https://www.mediafire.com/file/1iu7hqs377e96uf/qioV19(Beal).zip/file';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> MediaFire
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/sfile?url=https://sfile.mobi/4MJIjvGqTmi';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> SFile
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/spotify?url=https://open.spotify.com/track/2nHldnAZ8IkrhAFwEwFaBO?si=XUbNRxBdQ-q_BWMiWTMZBg';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Spotify
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/tikmusic?url=https://vt.tiktok.com/ZS29uaYEv/';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> TikTok Music
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/tiktok?url=https://vt.tiktok.com/ZS29uaYEv/';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> TikTok
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/xnxxdl?query=https://www.xnxx.com/video-fzypdd8/beautiful_filipina_with_big_tits';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> XNXX Downloader
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/ytmp3?url=https://youtube.com/watch?v=KHgllosZ3kA';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> YTMP3
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/ytmp4?url=https://youtube.com/watch?v=KHgllosZ3kA';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> YTMP4
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/ytplaymp3?query=DJ malam pagi slowed';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> YouTube Play MP3
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/ytplaymp4?query=DJ malam pagi slowed';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> YouTube Play MP4
+        </div>
+      </div>
+      <div class="menu-item" onclick="toggleSubmenu('searching-submenu', 'searching-icon')">
+        <div>
+          <i class="fa-brands fa-searchengin"></i> Searching
+        </div>
+        <i class="fas fa-caret-right" id="searching-icon"></i>
+      </div>
+      <div class="submenu" id="searching-submenu">
+        <div class="submenu-item" onclick="location.href='/api/bukalapak?query=iPhone 13';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Bukalapak
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/gimage?query=yahya almuthahar';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Google Image
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/google?query=yahya almuthahar';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Google
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/hero?query=layla';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Hero
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/lirik?lagu=bila nanti';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Lirik
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/pinterest?query=anime';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Pinterest
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/pixiv-r18?query=loli';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Pixiv R18
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/playstore?query=epep';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Playstore
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/sfile-search?query=ff mod';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> SFile Search
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/spotifysearch?query=dj opus';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Spotify Search
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/xnxxsearch?query=bokep';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> XNXX Search
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/yts?query=dj ambatukam';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> YouTube Search
+        </div>
+      </div>
+      <div class="menu-item" onclick="toggleSubmenu('game-submenu', 'game-icon')">
+        <div>
+          <i class="fa-solid fa-trophy"></i> Game
+        </div>
+        <i class="fas fa-caret-right" id="game-icon"></i>
+      </div>
+      <div class="submenu" id="game-submenu">
+        <div class="submenu-item" onclick="location.href='/api/tebakgambar';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Tebak Gambar
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/tebakhero';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Tebak Hero
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/tebakff';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Tebak Free Fire
+        </div>
+      </div>
+      <div class="menu-item" onclick="toggleSubmenu('ai-submenu', 'ai-icon')">
+        <div>
+          <i class="fa-solid fa-headset"></i> OpenAI
+        </div>
+        <i class="fas fa-caret-right" id="ai-icon"></i>
+      </div>
+      <div class="submenu" id="ai-submenu">
+        <div class="submenu-item" onclick="location.href='/api/HariLibur';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Hari Libur
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/logic?query=buatkan gambar manusia disawah';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Logic Detektor
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/mora?query=hai&username=yournumber';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Mora
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/qioo2?query=hai&username=yournumber';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Qioo v2
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/qioo3?query=hai&sessionid=';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Qioo v3
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/simi?query=hai&lang=id';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Simi
+        </div>
+      </div>
+      <div class="menu-item" onclick="toggleSubmenu('stalker-submenu', 'stalker-icon')">
+        <div>
+          <i class="fa-solid fa-people-arrows"></i> Stalker
+        </div>
+        <i class="fas fa-caret-right" id="stalker-icon"></i>
+      </div>
+      <div class="submenu" id="stalker-submenu">
+        <div class="submenu-item" onclick="location.href='/api/mlstalk?id=109088431&zoneid=2558';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Mobile Legends Stalk
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/ffstalk?id=12345678';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Free Fire Stalk
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/npmstalk?query=@mrpudidi/gravatar';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> NPM Stalk
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/tiktokStalk?query=yahyaalialmthr';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> TikTok Stalk
+        </div>
+      </div>
+      <div class="menu-item" onclick="toggleSubmenu('random-submenu', 'random-icon')">
+        <div>
+          <i class="fa-solid fa-dice"></i> Random
+        </div>
+        <i class="fas fa-caret-right" id="random-icon"></i>
+      </div>
+      <div class="submenu" id="random-submenu">
+        <div class="submenu-item" onclick="location.href='/api/bocil';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Bocil
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/galau';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Galau
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/hentaivid';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Hentai Video
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/meme';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Meme
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/myinstants';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> MyInstants
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/neko';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Neko
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/waifu';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Waifu
+        </div>
+      </div>
+      <div class="menu-item" onclick="toggleSubmenu('tools-submenu', 'tools-icon')">
+        <div>
+          <i class="fas fa-tools"></i> Tools
+        </div>
+        <i class="fas fa-caret-right" id="tools-icon"></i>
+      </div>
+      <div class="submenu" id="tools-submenu">
+        <div class="submenu-item" onclick="location.href='/api/bpjs?nik=1408042710790007';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> BPJS
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/ssweb?url=https://www.vreden.my.id&type=tablet';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> SS Web
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/tinyurl?url=https://www.vreden.my.id';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> TinyURL
+        </div>
+      </div>
+      <div class="menu-item" onclick="toggleSubmenu('canvas-submenu', 'canvas-icon')">
+        <div>
+          <i class="fas fa-paint-brush"></i> Canvas
+        </div>
+        <i class="fas fa-caret-right" id="canvas-icon"></i>
+      </div>
+      <div class="submenu" id="canvas-submenu">
+        <div class="submenu-item" onclick="location.href='/api/levelup?background=https://telegra.ph/file/d0fce5c840f366526bab7.jpg&name=vreden&level=1&levelup=2&avatar=https://telegra.ph/file/d0fce5c840f366526bab7.jpg';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Level Up
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/notify?background=https://telegra.ph/file/588090b81788803c48717.jpg&title=Welcome&desk=welcome%20semoga%20betah&avatar=https://telegra.ph/file/750ed3947ea3722c20b77.png';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Notify
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/saldo?background=https://telegra.ph/file/d0fce5c840f366526bab7.jpg&name=vreden&level=12&rank=bronze&rankid=1&exp=47&requireexp=2500&avatar=https://telegra.ph/file/1d5e663a8445e3459359d.jpg';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Saldo
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/spotifyimage?image=https://telegra.ph/file/1ea2294b84bf0b9a34140.jpg&title=dj%20melodi%20kane&author=dj%20opus&album=dj%20mantan%20pacar';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Spotify Image
+        </div>
+        <div class="submenu-item" onclick="location.href='/api/tweet?theme=dark&username=vredenofc&displayname=free%20fire&comment=tidak%20perlu%20kata%20kata%20hanya%20perlu%20bukti%20nyata&avatar=https://telegra.ph/file/1ea2294b84bf0b9a34140.jpg';">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Tweet
+        </div>
+      </div>
+    </div>
+    <div class="container" id="main-content">
+      <div class="card">
+        <div>
+          <h3> USERS ONLINE </h3>
+          <div class="value" id="users-online"> Loading... </div>
+          <p> Pengguna dalam 30 menit😨🤫🧏🏻‍♂️ </p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-users"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <h3> PLATFORM SERVERS </h3>
+          <div class="value" id="platform-server"> Loading... </div>
+          <p> Platform OS yang di gunakan </p>
+        </div>
+        <div class="icon">
+          <i class="fab fa-ubuntu"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <h3> RAM SERVER INFO </h3>
+          <div class="value" id="memory-info"> Loading... </div>
+          <p> Status Ram Servers </p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-sync-alt"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <h3> DISK SERVER INFO </h3>
+          <div class="value" id="disk-info"> Loading... </div>
+          <p> Disk penyimpanan server </p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-database"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <h3> IP ADDRESS </h3>
+          <div class="value" id="ip-address"> Loading... </div>
+          <p> Your IP Address </p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-wifi"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <h3> YOUR BATTERY </h3>
+          <div class="value" id="battery-level"> Loading... </div>
+          <p> Percentage Your Battery </p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-battery-half"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <h3> DATE </h3>
+          <div class="value" id="current-date"> Loading... </div>
+          <p> Date Now </p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <h3> CLOCK </h3>
+          <div class="value" id="current-time"> Loading... </div>
+          <p> Time Now </p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-clock"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <h3> STATUS SERVER </h3>
+          <div class="value" id="server-status"> Loading... </div>
+          <p> Server Status </p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-server"></i>
+        </div>
+      </div>
+      <div class="card next-page-card">
+        <h3> CANVAS API </h3>
+        <button onclick="location.href='https://node.vreden.my.id'"> Comming Soon <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="card next-page-card">
+        <h3> YOUTUBE API </h3>
+        <button onclick="location.href='https://servers.vreden.my.id'"> Comming Soon <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+    <div class="modal" id="email-modal">
+      <div class="modal-header">
+        <h3> Logs Pembaruan </h3>
+        <i class="fa-regular fa-circle-xmark" onclick="closeModal('email-modal')"></i>
+      </div>
+      <div class="modal-content">
+        <p> [19/12/2024] YouTube Fixed </p>
+      </div>
+      <div class="modal-content">
+        <p> [14/12/2024] Rest Api Update </p>
+      </div>
+    </div>
+    <div class="modal" id="profile-modal">
+      <div class="modal-header">
+        <h3> Profile Owner</h3>
+        <i class="fa-regular fa-circle-xmark" onclick="closeModal('profile-modal')"></i>
+      </div>
+      <div class="modal-content profile-modal-content">
+        <img alt="Profile Picture" height="80" src="https://pomf2.lain.la/f/qnvkngbi.jpg" width="80" />
+        <div>
+          <p> Its Me Vreden Softbots </p>
+          <p> Students Web Developer </p>
+          <p> Students Software Engineer </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script>
+      fetch('https://api.ipify.org?format=json').then(response => response.json()).then(data => {
+        document.getElementById('ip-address').textContent = data.ip
+      }).catch(error => {
+        document.getElementById('ip-address').textContent = 'Unable to fetch IP'
+      })
+      navigator.getBattery().then(function(battery) {
+        function updateBatteryStatus() {
+          document.getElementById('battery-level').textContent = Math.round(battery.level * 100) + '%'
+        }
+        updateBatteryStatus()
+        battery.addEventListener('levelchange', updateBatteryStatus)
+      })
+
+      function updateDateTime() {
+        const now = new Date()
+        const options = {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        }
+        document.getElementById('current-date').textContent = now.toLocaleDateString('id-ID', options)
+        document.getElementById('current-time').textContent = now.toLocaleTimeString('id-ID')
+      }
+      setInterval(updateDateTime, 1000)
+      updateDateTime()
+      fetch('/servers').then(response => response.json()).then(data => {
+        document.getElementById('users-online').textContent = data.users
+        document.getElementById('platform-server').textContent = data.platform
+        document.getElementById('memory-info').textContent = data.memory
+        document.getElementById('disk-info').textContent = data.disk
+        document.getElementById('server-status').textContent = data.status
+      }).catch(error => {
+        console.error('Error fetching data:', error)
+      })
+      document.getElementById('menu-toggle').addEventListener('click', function() {
+        const menu = document.getElementById('menu')
+        if (menu.classList.contains('active')) {
+          menu.classList.remove('active')
+          document.getElementById('main-content').classList.remove('blur')
+        } else {
+          menu.classList.add('active')
+          document.getElementById('main-content').classList.add('blur')
+        }
+      })
+      document.getElementById('menu-close').addEventListener('click', function() {
+        document.getElementById('menu').classList.remove('active')
+        document.getElementById('main-content').classList.remove('blur')
+      })
+
+      function toggleSubmenu(submenuId, iconId) {
+          const submenuIds = [
+            'downloader-submenu',
+            'random-submenu',
+            'stalker-submenu',
+            'searching-submenu',
+            'ai-submenu',
+            'canvas-submenu',
+            'game-submenu',
+            'tools-submenu'
+          ];
+          const iconIds = [
+            'downloader-icon',
+            'random-icon',
+            'stalker-icon',
+            'searching-icon',
+            'ai-icon',
+            'canvas-icon',
+            'game-icon',
+            'tools-icon'
+          ];
+
+          const submenu = document.getElementById(submenuId);
+          const icon = document.getElementById(iconId);
+
+          submenuIds.forEach((id, index) => {
+            const otherSubmenu = document.getElementById(id);
+            const otherIcon = document.getElementById(iconIds[index]);
+
+            if (id !== submenuId) {
+              otherSubmenu.classList.remove('active');
+              otherIcon.classList.remove('fa-caret-down');
+              otherIcon.classList.add('fa-caret-right');
+            }
+          });
+
+          if (submenu.classList.contains('active')) {
+            submenu.classList.remove('active');
+            icon.classList.remove('fa-caret-down');
+            icon.classList.add('fa-caret-right');
+          } else {
+            submenu.classList.add('active');
+            icon.classList.remove('fa-caret-right');
+            icon.classList.add('fa-caret-down');
+          }
+      }
+      
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId)
+        modal.classList.add('active')
+        document.getElementById('main-content').classList.add('blur')
+      }
+
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId)
+        modal.classList.remove('active')
+        document.getElementById('main-content').classList.remove('blur')
+      }
+      document.getElementById('email-icon').addEventListener('click', function() {
+        openModal('email-modal')
+      })
+      document.getElementById('profile-icon').addEventListener('click', function() {
+        openModal('profile-modal')
+      })
+      document.addEventListener('click', function(event) {
+        const menu = document.getElementById('menu')
+        const mainContent = document.getElementById('main-content')
+        const emailModal = document.getElementById('email-modal')
+        const profileModal = document.getElementById('profile-modal')
+        if (!emailModal.contains(event.target) && !document.getElementById('email-icon').contains(event.target)) {
+          emailModal.classList.remove('active')
+        }
+        if (!profileModal.contains(event.target) && !document.getElementById('profile-icon').contains(event.target)) {
+          profileModal.classList.remove('active')
+        }
+        if (!emailModal.classList.contains('active') && !profileModal.classList.contains('active')) {
+          mainContent.classList.remove('blur')
+        }
+        if (!menu.contains(event.target) && !document.getElementById('menu-toggle').contains(event.target)) {
+          menu.classList.remove('active')
+          toggleSubmenu()
+        }
+      })
+
+      function handleScroll() {
+        const cards = document.querySelectorAll('.card');
+        const windowHeight = window.innerHeight;
+        cards.forEach(card => {
+          const cardTop = card.getBoundingClientRect().top;
+          const cardHeight = card.offsetHeight;
+          if (cardTop < windowHeight - cardHeight / 2 && cardTop > 0) {
+            card.classList.add('visible');
+          } else {
+            card.classList.remove('visible');
+          }
+        });
+      }
+      document.addEventListener('scroll', handleScroll);
+      handleScroll();
+    </script>
+    <script>
+      function copyJsCode(elementId) {
+        const code = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(code).then(() => {
+          alert('JavaScript Code copied to clipboard!');
+        }).catch(err => {
+          console.error('Failed to copy JavaScript code: ', err);
+        });
+      }
+    </script>
+  </body>
+</html>
