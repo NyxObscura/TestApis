@@ -1,3 +1,3 @@
-# Improving API documentation
+# Fixing UI glitches
 
-_Last updated: 2025-02-15T19:26:42.988Z_
+_Last updated: 2025-02-15T19:27:41.685Z_
