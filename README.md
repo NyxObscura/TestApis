@@ -1,3 +1,3 @@
-# Improving session handling
+# Improving API documentation
 
-_Last updated: 2025-02-15T19:52:44.465Z_
+_Last updated: 2025-02-15T19:53:45.618Z_
