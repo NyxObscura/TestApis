@@ -1,3 +1,3 @@
-# Performance improvements
+# Fixing UI glitches
 
-_Last updated: 2025-02-15T19:19:43.782Z_
+_Last updated: 2025-02-15T19:20:42.652Z_
