@@ -1,3 +1,3 @@
-# Improving SEO metadata
+# Improving API documentation
 
-_Last updated: 2025-02-15T15:35:47.812Z_
+_Last updated: 2025-02-15T15:36:46.446Z_
