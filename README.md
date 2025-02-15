@@ -1,3 +1,3 @@
-# Fixing minor bugs
+# Updating documentation formatting
 
-_Last updated: 2025-02-15T12:43:59.987Z_
+_Last updated: 2025-02-15T12:45:04.075Z_
