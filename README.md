@@ -1,3 +1,3 @@
-# Improving keyboard accessibility
+# Improving SEO metadata
 
-_Last updated: 2025-02-15T15:17:54.181Z_
+_Last updated: 2025-02-15T15:18:52.650Z_
