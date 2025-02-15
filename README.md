@@ -1,3 +1,3 @@
-# Enhancing offline support
+# Improving session handling
 
-_Last updated: 2025-02-15T16:44:50.626Z_
+_Last updated: 2025-02-15T16:45:51.223Z_
