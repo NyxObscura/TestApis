@@ -1,3 +1,3 @@
-# Refactoring network request handling
+# Updating example code snippets
 
-_Last updated: 2025-02-15T14:03:03.202Z_
+_Last updated: 2025-02-15T14:04:07.542Z_
