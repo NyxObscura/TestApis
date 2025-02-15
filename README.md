@@ -1,3 +1,3 @@
-# Improving API documentation
+# Fixing timezone-related issues
 
-_Last updated: 2025-02-15T16:33:49.385Z_
+_Last updated: 2025-02-15T16:34:49.238Z_
