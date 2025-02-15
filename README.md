@@ -1,3 +1,3 @@
-# Reducing bundle size
+# Fixing internationalization issues
 
-_Last updated: 2025-02-15T12:19:56.845Z_
+_Last updated: 2025-02-15T12:20:56.139Z_
