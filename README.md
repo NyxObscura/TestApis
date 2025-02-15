@@ -1,3 +1,3 @@
-# Enhancing code readability
+# Enhancing offline support
 
-_Last updated: 2025-02-15T17:09:51.213Z_
+_Last updated: 2025-02-15T17:10:50.943Z_
