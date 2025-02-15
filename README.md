@@ -1,3 +1,3 @@
-# Reducing memory usage
+# Refactoring background jobs
 
-_Last updated: 2025-02-15T13:49:01.585Z_
+_Last updated: 2025-02-15T13:50:03.448Z_
