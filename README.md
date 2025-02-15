@@ -1,3 +1,3 @@
-# Refactoring background jobs
+# Performance improvements
 
-_Last updated: 2025-02-15T18:15:54.697Z_
+_Last updated: 2025-02-15T18:16:53.943Z_
