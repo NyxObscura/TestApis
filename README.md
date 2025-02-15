@@ -1,3 +1,3 @@
-# Adding better exception handling
+# Refactor README.md
 
-_Last updated: 2025-02-15T21:15:50.421Z_
+_Last updated: 2025-02-15T21:16:51.478Z_
