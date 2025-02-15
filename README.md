@@ -1,3 +1,3 @@
-# Refining notification system
+# Fixing internationalization issues
 
-_Last updated: 2025-02-15T03:10:53.946Z_
+_Last updated: 2025-02-15T03:11:54.063Z_
