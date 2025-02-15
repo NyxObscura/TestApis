@@ -1,3 +1,3 @@
-# Improving error handling
+# Improving SEO metadata
 
-_Last updated: 2025-02-15T08:02:27.467Z_
+_Last updated: 2025-02-15T08:03:27.808Z_
