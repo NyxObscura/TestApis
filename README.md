@@ -1,3 +1,3 @@
-# Enhancing offline support
+# Refactoring role-based access control
 
-_Last updated: 2025-02-15T08:28:30.637Z_
+_Last updated: 2025-02-15T08:29:28.645Z_
