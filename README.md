@@ -1,3 +1,3 @@
-# Improving application startup time
+# Improving database indexing
 
-_Last updated: 2025-02-15T17:03:52.205Z_
+_Last updated: 2025-02-15T17:04:56.460Z_
