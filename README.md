@@ -1,3 +1,3 @@
-# Optimizing CSS rules
+# Fixing UI glitches
 
-_Last updated: 2025-02-16T16:38:37.988Z_
+_Last updated: 2025-02-16T16:39:08.311Z_
