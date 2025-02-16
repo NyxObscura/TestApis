@@ -1,3 +1,3 @@
-# Improving SEO metadata
+# Adding better analytics tracking
 
-_Last updated: 2025-02-16T19:32:10.949Z_
+_Last updated: 2025-02-16T19:32:40.950Z_
