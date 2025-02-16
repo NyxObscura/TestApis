@@ -1,3 +1,3 @@
-# Fixing typos in documentation
+# Refactoring background jobs
 
-_Last updated: 2025-02-16T20:28:41.896Z_
+_Last updated: 2025-02-16T20:29:11.897Z_
