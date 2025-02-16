@@ -1,3 +1,3 @@
-# Updating example code snippets
+# Optimizing SQL queries
 
-_Last updated: 2025-02-16T07:05:12.199Z_
+_Last updated: 2025-02-16T07:05:42.245Z_
