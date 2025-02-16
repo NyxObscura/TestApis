@@ -1,3 +1,3 @@
-# Removing deprecated functions
+# Fixing permission issues
 
-_Last updated: 2025-02-16T17:42:39.492Z_
+_Last updated: 2025-02-16T17:43:09.286Z_
