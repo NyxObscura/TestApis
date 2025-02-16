@@ -1,3 +1,3 @@
-# Adding better analytics tracking
+# Fixing event listener memory leaks
 
-_Last updated: 2025-02-16T08:15:13.404Z_
+_Last updated: 2025-02-16T08:15:43.423Z_
