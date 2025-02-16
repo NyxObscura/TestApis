@@ -1,3 +1,3 @@
-# Improving database indexing
+# Optimizing SQL queries
 
-_Last updated: 2025-02-16T08:30:45.700Z_
+_Last updated: 2025-02-16T08:31:56.015Z_
