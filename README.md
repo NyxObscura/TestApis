@@ -1,3 +1,3 @@
-# Enhancing documentation
+# Improving keyboard accessibility
 
-_Last updated: 2025-02-16T14:09:35.599Z_
+_Last updated: 2025-02-16T14:10:05.646Z_
