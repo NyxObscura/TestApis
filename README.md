@@ -1,3 +1,3 @@
-# Updating outdated references
+# Updating CI/CD pipeline
 
-_Last updated: 2025-02-16T17:32:08.933Z_
+_Last updated: 2025-02-16T17:32:38.967Z_
