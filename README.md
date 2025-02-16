@@ -1,3 +1,3 @@
-# Adding accessibility improvements
+# Refactoring background jobs
 
-_Last updated: 2025-02-16T12:24:38.167Z_
+_Last updated: 2025-02-16T12:25:08.591Z_
