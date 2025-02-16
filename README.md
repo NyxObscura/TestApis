@@ -1,3 +1,3 @@
-# Improving session handling
+# Fixing typos in documentation
 
-_Last updated: 2025-02-16T07:09:42.276Z_
+_Last updated: 2025-02-16T07:10:12.240Z_
