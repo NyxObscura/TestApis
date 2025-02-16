@@ -1,3 +1,3 @@
-# Fixing broken links in README
+# Refactoring file structure
 
-_Last updated: 2025-02-16T06:17:11.427Z_
+_Last updated: 2025-02-16T06:17:41.427Z_
