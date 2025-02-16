@@ -1,3 +1,3 @@
-# Optimizing SQL queries
+# Fixing indentation issues
 
-_Last updated: 2025-02-16T11:54:37.551Z_
+_Last updated: 2025-02-16T11:55:07.407Z_
