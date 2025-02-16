@@ -1,3 +1,3 @@
-# Minor text update
+# Simplifying function logic
 
-_Last updated: 2025-02-16T01:48:42.548Z_
+_Last updated: 2025-02-16T01:49:12.927Z_
