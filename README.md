@@ -1,3 +1,3 @@
-# Enhancing mobile responsiveness
+# Fixing permission issues
 
-_Last updated: 2025-02-16T10:47:36.237Z_
+_Last updated: 2025-02-16T10:48:07.575Z_
