@@ -1,3 +1,3 @@
-# Fixing event listener memory leaks
+# Adding multi-language support
 
-_Last updated: 2025-02-16T08:47:23.013Z_
+_Last updated: 2025-02-16T08:47:46.701Z_
