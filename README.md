@@ -1,3 +1,3 @@
-# Improving keyboard accessibility
+# Adding better exception handling
 
-_Last updated: 2025-02-16T21:32:42.977Z_
+_Last updated: 2025-02-16T21:33:13.058Z_
