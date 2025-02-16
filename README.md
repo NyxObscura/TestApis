@@ -1,3 +1,3 @@
-# Simplifying function logic
+# Fixing internationalization issues
 
-_Last updated: 2025-02-16T11:52:37.169Z_
+_Last updated: 2025-02-16T11:53:07.799Z_
