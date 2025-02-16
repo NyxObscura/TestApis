@@ -1,3 +1,3 @@
-# Adding multi-language support
+# Fixing internationalization issues
 
-_Last updated: 2025-02-16T22:52:44.374Z_
+_Last updated: 2025-02-16T22:53:14.399Z_
