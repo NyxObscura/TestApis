@@ -1,3 +1,3 @@
-# Enhancing webhook reliability
+# Improving SEO metadata
 
-_Last updated: 2025-02-16T20:59:42.374Z_
+_Last updated: 2025-02-16T21:00:12.418Z_
