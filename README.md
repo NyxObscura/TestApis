@@ -1,3 +1,3 @@
-# Adjusting styling for better UX
+# Fixing internationalization issues
 
-_Last updated: 2025-02-16T11:12:06.606Z_
+_Last updated: 2025-02-16T11:12:36.568Z_
