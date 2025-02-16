@@ -1,3 +1,3 @@
-# Enhancing websocket stability
+# Refactoring background jobs
 
-_Last updated: 2025-02-16T14:35:36.557Z_
+_Last updated: 2025-02-16T14:36:06.293Z_
