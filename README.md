@@ -1,3 +1,3 @@
-# Minor text update
+# Refactor README.md
 
-_Last updated: 2025-02-16T10:12:36.019Z_
+_Last updated: 2025-02-16T10:13:05.988Z_
