@@ -1,3 +1,3 @@
-# Enhancing webhook reliability
+# Fixing typos in documentation
 
-_Last updated: 2025-02-16T19:57:11.359Z_
+_Last updated: 2025-02-16T19:57:41.380Z_
