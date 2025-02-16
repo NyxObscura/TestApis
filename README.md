@@ -1,3 +1,3 @@
-# Improving SEO metadata
+# Update minor changes
 
-_Last updated: 2025-02-16T16:06:37.481Z_
+_Last updated: 2025-02-16T16:07:07.450Z_
