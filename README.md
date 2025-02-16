@@ -1,3 +1,3 @@
-# Fixing broken links in README
+# Fixing event listener memory leaks
 
-_Last updated: 2025-02-16T06:25:41.597Z_
+_Last updated: 2025-02-16T06:26:11.559Z_
