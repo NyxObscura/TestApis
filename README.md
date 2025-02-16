@@ -1,3 +1,3 @@
-# Fixing broken links in README
+# Enhancing offline support
 
-_Last updated: 2025-02-16T18:35:09.983Z_
+_Last updated: 2025-02-16T18:35:39.997Z_
