@@ -1,3 +1,3 @@
-# Improving SEO metadata
+# Fixing image rendering issues
 
-_Last updated: 2025-02-17T03:10:38.708Z_
+_Last updated: 2025-02-17T03:11:08.700Z_
