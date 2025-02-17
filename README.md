@@ -1,3 +1,3 @@
-# Updating documentation formatting
+# Adjusting styling for better UX
 
-_Last updated: 2025-02-17T13:58:51.984Z_
+_Last updated: 2025-02-17T13:59:21.945Z_
