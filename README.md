@@ -1,3 +1,3 @@
-# Adding better exception handling
+# Small code refactor
 
-_Last updated: 2025-02-17T07:31:42.448Z_
+_Last updated: 2025-02-17T07:32:12.535Z_
