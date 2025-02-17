@@ -1,3 +1,3 @@
-# Fixing image rendering issues
+# Refactoring background jobs
 
-_Last updated: 2025-02-17T09:52:44.140Z_
+_Last updated: 2025-02-17T09:53:14.150Z_
