@@ -1,3 +1,3 @@
-# Refactoring background jobs
+# Adding missing documentation
 
-_Last updated: 2025-02-17T13:51:51.752Z_
+_Last updated: 2025-02-17T13:52:21.950Z_
