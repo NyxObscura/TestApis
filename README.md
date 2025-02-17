@@ -1,3 +1,3 @@
-# Adjusting styling for better UX
+# Fixing permission issues
 
-_Last updated: 2025-02-17T09:14:48.302Z_
+_Last updated: 2025-02-17T09:15:08.012Z_
