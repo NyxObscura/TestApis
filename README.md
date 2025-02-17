@@ -1,3 +1,3 @@
-# Refactoring component structure
+# Adding multi-language support
 
-_Last updated: 2025-02-17T06:46:41.732Z_
+_Last updated: 2025-02-17T06:47:11.760Z_
