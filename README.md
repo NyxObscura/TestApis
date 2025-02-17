@@ -1,3 +1,3 @@
-# Improving function modularity
+# Optimizing CSS rules
 
-_Last updated: 2025-02-17T12:47:50.872Z_
+_Last updated: 2025-02-17T12:48:20.873Z_
