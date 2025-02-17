@@ -1,3 +1,3 @@
-# Improving database indexing
+# Reducing redundant operations
 
-_Last updated: 2025-02-17T04:42:40.150Z_
+_Last updated: 2025-02-17T04:43:10.223Z_
