@@ -1,3 +1,3 @@
-# Adding multi-language support
+# Fixing image rendering issues
 
-_Last updated: 2025-02-17T08:29:43.376Z_
+_Last updated: 2025-02-17T08:30:13.393Z_
