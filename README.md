@@ -1,3 +1,3 @@
-# Improving API documentation
+# Refactoring background jobs
 
-_Last updated: 2025-02-17T15:08:22.919Z_
+_Last updated: 2025-02-17T15:08:53.002Z_
