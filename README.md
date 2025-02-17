@@ -1,3 +1,3 @@
-# Small code refactor
+# Fixing internationalization issues
 
-_Last updated: 2025-02-17T10:12:44.437Z_
+_Last updated: 2025-02-17T10:13:14.507Z_
