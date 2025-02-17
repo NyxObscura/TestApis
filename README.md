@@ -1,3 +1,3 @@
-# Updating configuration files
+# Fixing event listener memory leaks
 
-_Last updated: 2025-02-17T09:00:07.203Z_
+_Last updated: 2025-02-17T09:00:37.211Z_
