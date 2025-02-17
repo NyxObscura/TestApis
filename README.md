@@ -1,3 +1,3 @@
-# Removing unnecessary console logs
+# Updating documentation formatting
 
-_Last updated: 2025-02-17T16:42:24.487Z_
+_Last updated: 2025-02-17T16:42:54.331Z_
