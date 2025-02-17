@@ -1,3 +1,3 @@
-# Reducing memory usage
+# Reducing bundle size
 
-_Last updated: 2025-02-17T17:49:24.499Z_
+_Last updated: 2025-02-17T17:49:54.494Z_
