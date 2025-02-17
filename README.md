@@ -1,3 +1,3 @@
-# Enhancing webhook reliability
+# Enhancing mobile responsiveness
 
-_Last updated: 2025-02-17T19:13:55.736Z_
+_Last updated: 2025-02-17T19:14:25.751Z_
