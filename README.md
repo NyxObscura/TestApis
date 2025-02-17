@@ -1,3 +1,3 @@
-# Updating outdated references
+# Optimizing SQL queries
 
-_Last updated: 2025-02-17T02:02:51.659Z_
+_Last updated: 2025-02-17T02:03:21.841Z_
