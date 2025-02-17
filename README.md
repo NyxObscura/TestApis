@@ -1,3 +1,3 @@
-# Improving keyboard accessibility
+# Fixing compatibility issues
 
-_Last updated: 2025-02-17T21:52:59.812Z_
+_Last updated: 2025-02-17T21:53:28.619Z_
