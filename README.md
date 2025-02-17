@@ -1,3 +1,3 @@
-# Refactoring component structure
+# Adding better tooltips
 
-_Last updated: 2025-02-17T17:45:54.369Z_
+_Last updated: 2025-02-17T17:46:24.443Z_
