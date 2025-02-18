@@ -1,3 +1,3 @@
-# Improving keyboard accessibility
+# Reducing bundle size
 
-_Last updated: 2025-02-18T02:04:57.651Z_
+_Last updated: 2025-02-18T02:05:07.590Z_
