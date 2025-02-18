@@ -1,3 +1,3 @@
-# Improving application startup time
+# Updating example code snippets
 
-_Last updated: 2025-02-18T01:39:36.132Z_
+_Last updated: 2025-02-18T01:39:46.222Z_
