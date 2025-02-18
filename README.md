@@ -1,3 +1,3 @@
-# Fixing formatting issues in logs
+# Updating example code snippets
 
-_Last updated: 2025-02-18T00:40:43.447Z_
+_Last updated: 2025-02-18T00:40:53.183Z_
