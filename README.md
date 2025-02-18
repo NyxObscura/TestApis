@@ -1,3 +1,3 @@
-# Improving database indexing
+# Enhancing offline support
 
-_Last updated: 2025-02-18T00:03:17.817Z_
+_Last updated: 2025-02-18T00:03:27.831Z_
