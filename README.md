@@ -1,3 +1,3 @@
-# Rewriting inefficient algorithms
+# Reducing redundant operations
 
-_Last updated: 2025-02-18T01:40:56.282Z_
+_Last updated: 2025-02-18T01:41:06.252Z_
