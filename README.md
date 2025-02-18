@@ -1,3 +1,3 @@
-# Fixing UI glitches
+# Fixing race conditions in async code
 
-_Last updated: 2025-02-18T01:47:26.660Z_
+_Last updated: 2025-02-18T01:47:36.390Z_
