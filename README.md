@@ -1,3 +1,3 @@
-# Cleaning up unused code
+# Fixing internationalization issues
 
-_Last updated: 2025-02-18T00:03:58.062Z_
+_Last updated: 2025-02-18T00:04:08.102Z_
