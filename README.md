@@ -1,3 +1,3 @@
-# Improving keyboard accessibility
+# Refactoring file structure
 
-_Last updated: 2025-02-18T00:18:38.915Z_
+_Last updated: 2025-02-18T00:18:48.722Z_
