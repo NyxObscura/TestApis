@@ -1,3 +1,3 @@
-# Fixing formatting issues in logs
+# Updating documentation formatting
 
-_Last updated: 2025-02-18T01:47:56.473Z_
+_Last updated: 2025-02-18T01:48:06.453Z_
