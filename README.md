@@ -1,3 +1,3 @@
-# Adding better tooltips
+# Updating API request parameters
 
-_Last updated: 2025-02-18T00:28:03.744Z_
+_Last updated: 2025-02-18T00:28:13.185Z_
